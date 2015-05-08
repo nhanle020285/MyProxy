@@ -1,5 +1,5 @@
-application: your-app-id-here
-version: first
+application: lhn-proxy
+version: 1
 module: default
 runtime: python27
 api_version: 1
