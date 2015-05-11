@@ -1,4 +1,4 @@
-application: lhn-proxy
+application: btn-proxy
 version: 1
 module: default
 runtime: python27
