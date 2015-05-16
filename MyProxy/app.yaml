@@ -1,5 +1,5 @@
 application: nhan-proxy
-version: 1
+version: 2
 module: default
 runtime: python27
 api_version: 1
