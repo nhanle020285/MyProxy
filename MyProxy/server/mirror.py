@@ -188,7 +188,7 @@ class HomeHandler(BaseHandler):
     context = {
       "secure_url": secure_url,
     }
-    self.response.out.write(template.render("main.html", context))
+    self.response.out.write(template.render("static/base/html/main.html", context))
 
 
 class MirrorHandler(BaseHandler):
