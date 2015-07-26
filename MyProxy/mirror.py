@@ -14,7 +14,7 @@
 # limitations under the License.
 
 __author__ = "Brett Slatkin (bslatkin@gmail.com)"
-
+import os
 import datetime
 import hashlib
 import logging
@@ -28,10 +28,11 @@ from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 from google.appengine.ext import db
 import webapp2
+import jinja2
 from google.appengine.ext.webapp import template
 from google.appengine.runtime import apiproxy_errors
 
-import transform_content
+from server import transform_content
 
 ###############################################################################
 
@@ -67,6 +68,11 @@ TRANSFORMED_CONTENT_TYPES = frozenset([
 MAX_CONTENT_SIZE = 10 ** 6
 
 ###############################################################################
+
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
 
 def get_url_key_name(url):
   url_hash = hashlib.sha256()
@@ -168,6 +174,7 @@ class BaseHandler(webapp2.RequestHandler):
 
 class HomeHandler(BaseHandler):
   def get(self):
+    logging.warning("home handler")
     if self.is_recursive_request():
       return
 
@@ -188,7 +195,12 @@ class HomeHandler(BaseHandler):
     context = {
       "secure_url": secure_url,
     }
-    self.response.out.write(template.render("static/base/html/main.html", context))
+    #self.response.out.write("Hello word")
+    #path = os.path.join(os.path.dirname(__file__), 'main.html')
+    #self.response.out.write(template.render(path, context))
+    template = JINJA_ENVIRONMENT.get_template("public/base/html/main.html")
+    #self.response.out.write(template.render("main.html", context))
+    self.response.out.write(template.render(context))
 
 
 class MirrorHandler(BaseHandler):

@@ -8,6 +8,12 @@ threadsafe: false
 inbound_services:
 - warmup
 
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+
 instance_class: F1
 automatic_scaling:
   min_idle_instances: 1
@@ -21,13 +27,13 @@ handlers:
   upload: static/robots\.txt
 
 - url: /favicon\.ico
-  static_files: static/favicon.ico
-  upload: static/favicon\.ico
+  static_files: static/base/images/favicon.ico
+  upload: static/base/images/favicon\.ico
   secure: optional
 
-- url: /static/base(\.[0-9])\.css
-  static_files: static/base.css
-  upload: static/base\.css
+- url: /static/base/css/base(\.[0-9])\.css
+  static_files: static/base/css/base.css
+  upload: static/base/css\.css
   secure: optional
 
 - url: /static
@@ -50,12 +56,14 @@ handlers:
   secure: optional
 
 - url: /.*
-  script: server/mirror.app
+  script: mirror.app
   secure: optional
 
 
 skip_files: |
  ^(.*/)?(
+ (.*\.scss)|
+ (.*\.json)|
  (app\.yaml)|
  (app\.yml)|
  (index\.yaml)|
@@ -66,6 +74,7 @@ skip_files: |
  (.*/RCS/.*)|
  (\..*)|
  (node_modules/.*)|
+ (bower_components/.*)|
  (client/.*)|
  (test/.*)|
  (docs/.*)|

@@ -80,9 +80,17 @@
     <Folder Include="client\base\" />
     <Folder Include="config\" />
     <Folder Include="client\" />
+    <Folder Include="djangoplugins\" />
+    <Folder Include="djangoplugins\management\" />
+    <Folder Include="djangoplugins\management\commands\" />
+    <Folder Include="djangoplugins\templatetags\" />
     <Folder Include="public\" />
+    <Folder Include="public\html\" />
     <Folder Include="server\" />
+    <Folder Include="server\cms\" />
+    <Folder Include="server\views\" />
     <Folder Include="static\" />
+    <Folder Include="static\base\images\sprites\" />
     <Folder Include="static\themes\" />
     <Folder Include="static\base\" />
     <Folder Include="static\base\images\" />
@@ -386,6 +394,8 @@
     <Content Include="Gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="package.json" />
+    <Content Include="public\html\cleanup.html" />
+    <Content Include="public\html\main.html" />
     <Content Include="static\base\html\cleanup.html" />
     <Content Include="static\base\html\main.html" />
     <Content Include="README.md" />
@@ -403,9 +413,39 @@
     <Content Include="test\test-main.js" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="server\mirror.py" />
+    <Compile Include="djangoplugins\admin.py" />
+    <Compile Include="djangoplugins\fields.py" />
+    <Compile Include="djangoplugins\management\commands\syncplugins.py" />
+    <Compile Include="djangoplugins\management\commands\__init__.py" />
+    <Compile Include="djangoplugins\management\__init__.py" />
+    <Compile Include="djangoplugins\models.py" />
+    <Compile Include="djangoplugins\point.py" />
+    <Compile Include="djangoplugins\templatetags\plugins.py" />
+    <Compile Include="djangoplugins\templatetags\__init__.py" />
+    <Compile Include="djangoplugins\tests.py" />
+    <Compile Include="djangoplugins\utils.py" />
+    <Compile Include="djangoplugins\views.py" />
+    <Compile Include="djangoplugins\__init__.py" />
+    <Compile Include="main.py" />
+    <Compile Include="mirror.py" />
+    <Compile Include="server\cms\configuration.py" />
+    <Compile Include="server\cms\debug_wrapper.py" />
+    <Compile Include="server\cms\forms.py" />
+    <Compile Include="server\cms\main.py" />
+    <Compile Include="server\cms\middleware.py" />
+    <Compile Include="server\cms\models.py" />
+    <Compile Include="server\cms\settings.py" />
+    <Compile Include="server\cms\urls.py" />
+    <Compile Include="server\cms\utility.py" />
+    <Compile Include="server\cms\validators.py" />
+    <Compile Include="server\cms\zip_handler.py" />
+    <Compile Include="server\cms\__init__.py" />
     <Compile Include="server\transform_content.py" />
     <Compile Include="server\transform_content_test.py" />
+    <Compile Include="server\views\__init__.py" />
+    <Compile Include="server\__init__.py" />
+    <Compile Include="settings.py" />
+    <Compile Include="urls.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
