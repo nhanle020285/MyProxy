@@ -1,0 +1,65 @@
+{
+    "rootpath": "client",
+    "dist": [ "public/js" ],
+    "js": {
+        "requirejs": {
+            "outSourceMap": true,
+            "configFile": "Client/requirejs.config.js",
+            "outRequirejs": "public/js/nhan.proxy.min.js"
+        },
+        "minify": {
+            "outSourceMap": true,
+            "files": [ "client/**/*.js" ],
+            "outFileName": "oanh.min.js",
+            "outPath": "public/js"
+        },
+        "concat": {
+            "files": [
+                "bower_components/angular/angular.min.js",
+                "bower_components/angular-route/angular-route.min.js",
+                "bower_components/angular-cookies/angular-cookies.min",
+                "bower_components/angular-sanitize/angular-sanitize.min",
+                "bower_components/angular-resource/angular-resource.min",
+                "bower_components/angular-animate/angular-animate.min",
+                "bower_components/angular-touch/angular-touch.min",
+                "bower_components/angular-mocks/angular-mocks.min"
+            ],
+            "outFileName": "nhan.lib.min.js",
+            "outPath": "public/js"
+        },
+        "compressRules": {
+            "sequences": true,
+            "properties": true,
+            "dead_code": true,
+            "drop_debugger": true,
+            "unsafe": false,
+            "conditionals": true,
+            "comparisons": true,
+            "evaluate": true,
+            "booleans": true,
+            "loops": true,
+            "unused": false,
+            "hoist_funs": true,
+            "hoist_vars": false,
+            "if_return": true,
+            "join_vars": true,
+            "cascade": true,
+            "side_effects": true,
+            "warnings": true,
+            "global_defs": { }
+        }
+    },
+    "css": {
+        "less": {
+            "files": "SPIs/Style/*.less",
+            "rootPathLess": "SPIs/Style"
+        },
+        "sass": { 
+            "files": "SPIs/Style/*.less",
+            "rootPathLess": "SPIs/Style"
+        }
+    },
+    "validate": {
+        "files": ["client/**/*.js"]
+    }
+}
