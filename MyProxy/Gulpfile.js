@@ -3,7 +3,6 @@
 'use strict';
 
 var appConfig = require('./config/app.json');
-appConfig.rootpath = appConfig.rootPath || require('./bower.json').appPath || 'app';
   
 var gulp = require('gulp')
   , $ = require('gulp-load-plugins')({
