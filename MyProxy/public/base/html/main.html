@@ -35,7 +35,7 @@
 <body onload="loadBox()">
     <div id="wrapper">
     <div id="container">
-        <div id="header"><span>Welcome to demo nodejs proxy</span></div>
+        <div id="header"><span>Welcome to demo proxy</span></div>
         <div id="form_wrapper">
         <form action="" method="get" accept-charset="utf-8">
             <div id="input_wrapper"><span id="http_prefix">http://</span>
@@ -43,4 +43,6 @@
             <input id="go_button" type="submit" value="Go"></div></form><div id="warning"></div></div>
         <div class="secure">{% if secure_url %}<a href="{{secure_url}}">{% endif %}
             <img src="/static/{% if secure_url %}no{% endif %}lock.png" width="16" height="16"> {% if secure_url %}not secure</a>{% else %}secure{% endif %}
-        </div></div></div></body></html>
+        </div></div></div>
+</body>
+</html>
