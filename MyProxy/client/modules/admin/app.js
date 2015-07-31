@@ -1,5 +1,5 @@
 /*jshint unused: vars */
-
+;
 define(['base', 'modulePath/admin/controllers/home']/*deps*/, function (base, HomeCtrl)/*invoke*/ {
   'use strict';
 
